@@ -1,4 +1,15 @@
-FROM ubuntu:latest
-LABEL authors="idris"
+FROM python:3.12
 
-ENTRYPOINT ["top", "-b"]
+WORKDIR /root
+
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+
+CMD ["python", "app.py"]
+#kkk
+#
